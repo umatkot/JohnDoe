@@ -11,27 +11,27 @@ namespace JohnDoe
 
         public string Name { get; set; }
 
-        public string TotalVoitesResult => @"{Name} has {VoiteCnt} voites"; 
+        public string TotalPenaltyResult => $"{Name} has {Penalties} voites"; 
 
         /// <summary>
         /// Количество голосов кандидата
         /// </summary>
-        private int VoiteCnt { get; set; }
+        private uint Penalties { get; set; }
 
         public Candidate(string name)
         {
             Name = name;
-            VoiteCnt = 0;
+            Penalties = 0;
         }
 
-        public void AddVoites(int voites) 
+        public void AddPenaltes(uint penalty) 
         {
-            VoiteCnt += voites;
+            Penalties += penalty;
         }
 
         public override string ToString()
         {
-            return $"{Name} - {VoiteCnt}";
+            return $"{Name, 15} - {Penalties}".PadRight(30);
         }
     }
 }

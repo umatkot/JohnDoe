@@ -34,22 +34,20 @@ Jane Austen
                 InputData = TestData;
             }
 
-            const int nTestBlocksMax = 20;
+            //Максимальный размер бюллетеня в кандидатах
+            const int TestBlocksMaxSize = 20;
 
-            var lineEndingsWithCR = "\r\n";
+            InputData = InputData.Replace("\r", "");
 
-            if (InputData.IndexOf(lineEndingsWithCR) == -1)
-                InputData.Replace("\n", lineEndingsWithCR);
+            string[] testData = InputData.Split("\n");
 
-            string[] testData = InputData.Split(lineEndingsWithCR);
-
-            var testBlocks = new List<TestBlock>() { new TestBlock() };
+            var testBlocks = new List<TestBlock>() { new TestBlock(TestBlocksMaxSize) };
 
             foreach(var testLine in testData)
             {
                 if(testLine.Replace(" ", "").Length == 0)
                 {
-                    testBlocks.Add(new TestBlock());
+                    testBlocks.Add(new TestBlock(TestBlocksMaxSize));
                     continue;
                 }
 

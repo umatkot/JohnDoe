@@ -9,7 +9,7 @@ namespace JohnDoe
 {
     internal class Round
     {
-        List<int> Items { get; set; }
+        List<uint> Items { get; set; }
 
         /// <summary>
         /// Разбирает бюллетень по голосам
@@ -19,26 +19,26 @@ namespace JohnDoe
 
             var voites = line.Split();
 
-            Items = MakeVoitesMap(voites);
+            Items = MakePenltiesMap(voites);
         }
 
-        List<int> MakeVoitesMap(string[] numbers)
+        List<uint> MakePenltiesMap(string[] numbers)
         {
-            var voites = new List<int>();
+            var penalties = new List<uint>();
             foreach(var number in numbers)
             {
-                if(uint.TryParse(number, out var voite))
+                if(uint.TryParse(number, out uint penalty) && penalty != 0)
                 {
-                    int voiteVal = Math.Abs(Convert.ToInt32(number));
-                    voites.Add(voiteVal);
+                    uint penaltyVal = (uint)Math.Abs(penalty);
+                    penalties.Add(penaltyVal);
                     continue;
                 }
 
                 //Учитывается только правильный бюллетень
-                voites.Clear();
+                penalties.Clear();
             }
 
-            return voites;
+            return penalties;
         }
 
         public IEnumerable<Candidate> ComposeRound(List<Candidate> candidates)
@@ -50,7 +50,7 @@ namespace JohnDoe
                 if (Items.Count != candidates.Count)
                     continue;
 
-                candidate.AddVoites(Items[index++]);
+                candidate.AddPenaltes(Items[index++]);
                 yield return candidate;
             }
         }

@@ -11,6 +11,14 @@ namespace JohnDoe
         public List<Candidate> Candidates { get; set; }
         uint CandidatesCount = 0;
         uint CurrentRoundIndex = 0;
+        readonly uint TestBlockMaxSize;
+
+
+        public TestBlock(uint testBlockMaxSize)
+        {
+            TestBlockMaxSize = testBlockMaxSize;
+        }
+
         /// <summary>
         /// данный блок реализуется тоько благодаря содержанию основанные на валидации блоков информации
         /// </summary>
@@ -23,6 +31,12 @@ namespace JohnDoe
                 {
                     throw new InvalidCastException("Read blocks count");
                 }
+
+                if(CandidatesCount > TestBlockMaxSize)
+                {
+                    CandidatesCount = TestBlockMaxSize;
+                }
+
                 Candidates = new List<Candidate>();
                 return;
             }
@@ -37,7 +51,7 @@ namespace JohnDoe
 
             CurrentRoundIndex++;
             Console.WriteLine($"Work round {CurrentRoundIndex}");
-            Console.WriteLine($"Candidate       voites");
+            Console.WriteLine($"Candidate{"",-10}voites");
 
             foreach (var candidate in round.ComposeRound(Candidates))
             {
@@ -53,7 +67,7 @@ namespace JohnDoe
         /// <returns></returns>
         public Candidate GetCandidate()
         {
-            return Candidates.OrderByDescending(c => c.TotalVoitesResult).First();
+            return Candidates.OrderByDescending(c => c.TotalPenaltyResult).First();
         }
     }
 }
