@@ -1,0 +1,15 @@
+D:\GIT\JohnDoe\obj\Debug\net7.0\JohnDoe.csproj.AssemblyReference.cache
+D:\GIT\JohnDoe\obj\Debug\net7.0\JohnDoe.GeneratedMSBuildEditorConfig.editorconfig
+D:\GIT\JohnDoe\obj\Debug\net7.0\JohnDoe.AssemblyInfoInputs.cache
+D:\GIT\JohnDoe\obj\Debug\net7.0\JohnDoe.AssemblyInfo.cs
+D:\GIT\JohnDoe\obj\Debug\net7.0\JohnDoe.csproj.CoreCompileInputs.cache
+D:\GIT\JohnDoe\bin\Debug\net7.0\JohnDoe.exe
+D:\GIT\JohnDoe\bin\Debug\net7.0\JohnDoe.deps.json
+D:\GIT\JohnDoe\bin\Debug\net7.0\JohnDoe.runtimeconfig.json
+D:\GIT\JohnDoe\bin\Debug\net7.0\JohnDoe.dll
+D:\GIT\JohnDoe\bin\Debug\net7.0\JohnDoe.pdb
+D:\GIT\JohnDoe\obj\Debug\net7.0\JohnDoe.dll
+D:\GIT\JohnDoe\obj\Debug\net7.0\refint\JohnDoe.dll
+D:\GIT\JohnDoe\obj\Debug\net7.0\JohnDoe.pdb
+D:\GIT\JohnDoe\obj\Debug\net7.0\JohnDoe.genruntimeconfig.cache
+D:\GIT\JohnDoe\obj\Debug\net7.0\ref\JohnDoe.dll
