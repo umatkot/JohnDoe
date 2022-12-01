@@ -2,9 +2,12 @@
 {
     internal class Program
     {
+
+        static string InputData { get; set; }
+
         static void Main(string[] args)
         {
-            const string InputData =
+            const string TestData =
 @"1
 
 3
@@ -16,6 +19,21 @@ Jane Austen
 2 3 1
 1 2 3
 3 1 2";
+
+            if (args.Length == 1 && args[0].Replace(" ", "") != "")
+            {
+                /*Имеется заданный параметр - файл с блоками*/
+                using (var file = File.OpenText(args[0]))
+                {
+                    InputData = file.ReadToEnd();
+                    file.Close();
+                }
+            }
+            else
+            {
+                InputData = TestData;
+            }
+
             const int nTestBlocksMax = 20;
 
             string [] testData = InputData.Split("\r\n");
@@ -33,13 +51,13 @@ Jane Austen
                 testBlocks.Last().InitBlock(testLine);
             }
 
-            foreach(var testBlock in testBlocks.Where(tb => tb.Candidates.Count > 0))
+            foreach(var testBlock in testBlocks.Where(tb => tb.Candidates != null && tb.Candidates.Count > 0))
             {
                 var winner = testBlock.GetCandidate();
                 Console.WriteLine(winner.Name);
             }
 
-            Console.WriteLine("Hello, World!");
+            //Console.WriteLine("Hello, World!");
             Console.ReadKey();
         }
     }

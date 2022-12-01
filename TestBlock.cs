@@ -36,7 +36,7 @@ namespace JohnDoe
             var round = new Round(parseData);
 
             CurrentRoundIndex++;
-
+            Console.WriteLine($"Work round {CurrentRoundIndex}");
             Console.WriteLine($"Candidate       voites");
 
             foreach (var candidate in round.ComposeRound(Candidates))
@@ -44,7 +44,7 @@ namespace JohnDoe
                 Console.WriteLine(candidate);
             }
 
-            Console.WriteLine($"Work round {CurrentRoundIndex}");
+            
         }
 
         /// <summary>
