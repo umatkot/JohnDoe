@@ -36,7 +36,12 @@ Jane Austen
 
             const int nTestBlocksMax = 20;
 
-            string [] testData = InputData.Split("\r\n");
+            var lineEndingsWithCR = "\r\n";
+
+            if (InputData.IndexOf(lineEndingsWithCR) == -1)
+                InputData.Replace("\n", lineEndingsWithCR);
+
+            string[] testData = InputData.Split(lineEndingsWithCR);
 
             var testBlocks = new List<TestBlock>() { new TestBlock() };
 
