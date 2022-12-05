@@ -67,7 +67,7 @@ namespace JohnDoe
         /// <returns></returns>
         public Candidate GetCandidate()
         {
-            return Candidates.OrderByDescending(c => c.TotalPenaltyResult).First();
+            return Candidates.OrderBy(c => c.TotalPenaltyResult).First();
         }
     }
 }
